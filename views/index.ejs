@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<body>
+    <ul>
+        <% messages.forEach((message,index)=>{%>
+            <%- include('messages/message',{message:message,index:index})%>
+        <%});%>
+    </ul>
+<a href="/new">
+  <button type="button">New Message</button>
+</a>
+   
+</body>
+</html>
