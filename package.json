@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "echo 'No build needed for plain JS'",
+    "start": "node server.js",
     "devStart": "nodemon server.js"
   },
   "keywords": [],
