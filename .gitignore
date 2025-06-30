@@ -1,0 +1,14 @@
+# Node modules - always ignore this (auto-installed)
+node_modules/
+
+# Environment variables - contains sensitive secrets
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db

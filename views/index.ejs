@@ -7,8 +7,8 @@
 </head>
 <body>
     <ul>
-        <% messages.forEach((message,index)=>{%>
-            <%- include('messages/message',{message:message,index:index})%>
+        <% messages.forEach((message)=>{%>
+            <%- include('messages/message',{message:message})%>
         <%});%>
     </ul>
 <a href="/new">

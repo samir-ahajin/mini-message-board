@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();  
 const path = require('node:path');
 
-const messages = require('./models/messages');
+
+// const messages = require('./models/messages');
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -14,28 +16,17 @@ app.use(express.static(assetsPath))
 app.set("views",path.join(__dirname,"views"));
 app.set('view engine','ejs');
 
+const homeRoute = require('./routes/homeRoute')
 const newRoute = require('./routes/newRoute')
+const detailRoute = require('./routes/detailRoute')
 
-app.get('/',(req,res)=>{
-   console.log(messages);
-   res.render("index", { title: "Mini Messageboard", messages: messages })
-})
+app.use('/',homeRoute)
 
 
 app.use('/new',newRoute)
 
 
-app.get('/details/:id',(req,res)=>{
-   const messageId = req.params.id;
-   const userMessage = messages[messageId]
-
-   if(userMessage){
-    console.log(messageId);
-     res.render('details', { title: `Message Details by ${userMessage.user}`, userMessage: userMessage, id: messageId });
-   }else{
-     res.redirect('/');
-   }
-})
+app.use('/details',detailRoute)
 
 
 app.listen(3000, () => {
